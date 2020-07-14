@@ -338,16 +338,36 @@
       position: relative;
       top: 1px;
       display: inline-block;
+      padding: @menu-item-padding;
       vertical-align: bottom;
-      border-bottom: 2px solid transparent;
+
+      &::after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        margin: @menu-item-padding;
+        margin-top: 0;
+        margin-bottom: 0;
+        background-color: transparent;
+        transition: background-color 0.3s @ease-in-out;
+        content: '';
+      }
 
       &:hover,
       &-active,
       &-open,
       &-selected {
         color: @menu-highlight-color;
-        border-bottom: 2px solid @menu-highlight-color;
+        &::after {
+          background-color: @menu-highlight-color;
+        }
       }
+    }
+
+    .@{menu-prefix-cls}-submenu-title {
+      padding: 0;
     }
 
     > .@{menu-prefix-cls}-item {
