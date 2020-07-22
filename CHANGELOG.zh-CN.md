@@ -15,6 +15,20 @@ timeline: true
 
 ---
 
+## 4.4.3
+
+`2020-07-20`
+
+- 🐞 修复 Layout `trigger` 属性无法定制零宽触发器的问题。[#25653](https://github.com/ant-design/ant-design/pull/25653)
+- 🐞 修复 Form.Item `help` 在校验失败时的样式。[#25582](https://github.com/ant-design/ant-design/pull/25582) [@zhangchen915](https://github.com/zhangchen915)
+- 🐞 修复 Descriptions 在 Table `expandedRowRender` 样式异常的问题。[#25593](https://github.com/ant-design/ant-design/pull/25593)
+- 💄 新增 `@zindex-popconfirm: 1060` less 变量，并将 `@zindex-tooltip` 提升为 `1070`。[#25693](https://github.com/ant-design/ant-design/pull/25693)
+- 🛠 更新 `react-slick` 依赖优化包大小。[#25599](https://github.com/ant-design/ant-design/pull/25599)
+- 🌐 改进加泰罗尼亚语 ca_ES 国际化。[#25583](https://github.com/ant-design/ant-design/pull/25583) [@albertms10](https://github.com/albertms10)
+- 🇸🇦 改进阿拉伯语 ar_EG 国际化。[#25587](https://github.com/ant-design/ant-design/pull/25587) [@amir5000](https://github.com/amir5000)
+- TypeScript
+  - 🐞 修复 Upload `customRequest` 的 File 定义。[#25598](https://github.com/ant-design/ant-design/pull/25598) [@AlbertAZ1992](https://github.com/AlbertAZ1992)
+
 ## 4.4.2
 
 `2020-07-11`
@@ -242,7 +256,7 @@ timeline: true
 
 `2020-05-31`
 
-- 🔥 重做 Tabs 以提升多标签在不同环境下的用户体验。[#24552](https://github.com/ant-design/ant-design/pull/24552)
+- 🔥 重做 Tabs 以提升多标签在不同环境下的用户体验，**DOM 结构完全重写**，请注意覆盖样式丢失的问题。[#24552](https://github.com/ant-design/ant-design/pull/24552)
 - 📖 新增组件[总览页面](https://ant.design/components/overview-cn)。[#24491](https://github.com/ant-design/ant-design/pull/24491) [@arvinxx](https://github.com/arvinxx)
 - 🛠 增加大量功能，同时减少了包体积（相比 `4.2.5` 减少了 2KB）。[#24584](https://github.com/ant-design/ant-design/pull/24584)
 - Button
