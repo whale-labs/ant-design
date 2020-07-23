@@ -338,35 +338,22 @@
       position: relative;
       top: 1px;
       display: inline-block;
-      padding: @menu-item-padding;
+      margin: @menu-item-padding;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: 0;
       vertical-align: bottom;
-
-      &::after {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        height: 2px;
-        margin: @menu-item-padding;
-        margin-top: 0;
-        margin-bottom: 0;
-        background-color: transparent;
-        transition: background-color 0.3s @ease-in-out;
-        content: '';
-      }
-
+      border-bottom: 2px solid transparent;
       &:hover,
       &-active,
       &-open,
       &-selected {
         color: @menu-highlight-color;
-        &::after {
-          background-color: @menu-highlight-color;
-        }
+        border-bottom: 2px solid @menu-highlight-color;
       }
     }
 
-    .@{menu-prefix-cls}-submenu-title {
+    > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       padding: 0;
     }
 
