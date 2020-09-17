@@ -1,7 +1,6 @@
 import * as React from 'react';
 import RcMenu, { Divider, ItemGroup, MenuProps as RcMenuProps } from 'rc-menu';
 import classNames from 'classnames';
-import { MotionType } from 'rc-trigger/lib/interface';
 import SubMenu from './SubMenu';
 import Item from './MenuItem';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -57,14 +56,18 @@ class InternalMenu extends React.Component<InternalMenuProps> {
     const { prefixCls: customizePrefixCls, className, theme } = this.props;
     const defaultMotions = {
       horizontal: { motionName: 'slide-up' },
-      inline: collapseMotion as MotionType,
+      inline: collapseMotion,
       other: { motionName: 'zoom-big' },
     };
 
     const prefixCls = getPrefixCls('menu', customizePrefixCls);
-    const menuClassName = classNames(className, `${prefixCls}-${theme}`, {
-      [`${prefixCls}-inline-collapsed`]: this.getInlineCollapsed(),
-    });
+    const menuClassName = classNames(
+      `${prefixCls}-${theme}`,
+      {
+        [`${prefixCls}-inline-collapsed`]: this.getInlineCollapsed(),
+      },
+      className,
+    );
 
     return (
       <MenuContext.Provider
