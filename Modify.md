@@ -1,7 +1,5 @@
 # 二次定制 ant-design 步骤
 
->
-
 ### package.json 文件
 
 ` "name": "antd",` =======> `"name": "@whale-labs/want",`
@@ -24,7 +22,7 @@ predeploy 删除 `&& npm run site:test`
 
 > 按照 package.json 中的 scripts 命令为顺序检查定制点
 
-### authors
+#### authors
 
 > 删除了获取 antd 官网的作者
 
@@ -40,7 +38,7 @@ predeploy 删除 `&& npm run site:test`
 
 ```
 
-### check-commit
+#### check-commit
 
 > 更换了从远程 npm 的 package 中获取 version 的地址
 
@@ -77,70 +75,14 @@ async function checkRemote() {
 }
 ```
 
-### predeploy
+#### predeploy
 
 > 删除 npm run site:test
 
 文件`CNAME`: `ant.design` ====> `want.meetwhale.com`
 
-### pub
+---
 
-```
+### 增加 customized 定制文件夹，存放覆盖原代码结构的代码
 
-```
-
-=====>
-
-```
-
-```
-
-### 删除 deploy:china-mirror
-
-### 删除 deploy:china-mirror
-
-```
-
-```
-
-=====>
-
-```
-
-```
-
-### deploy
-
-```
-
-```
-
-=====>
-
-```
-
-```
-
-### deploy
-
-```
-
-```
-
-=====>
-
-```
-
-```
-
-### deploy
-
-```
-
-```
-
-=====>
-
-```
-
-```
+> 在需要覆盖的地方，引入定制文件。如在 componets/style/themes/index.less 中引入`@import '../../../customized/style/themes/index.less';`

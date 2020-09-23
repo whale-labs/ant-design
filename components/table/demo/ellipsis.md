@@ -38,7 +38,12 @@ const columns = [
     title: 'Address',
     dataIndex: 'address',
     key: 'address 1',
-    ellipsis: true,
+    // ellipsis: true,
+    render: text => (
+      <span className="ant-table-ellipsis-multiline" title={text}>
+        {text}
+      </span>
+    ),
   },
   {
     title: 'Long Column Long Column Long Column',
@@ -72,7 +77,8 @@ const data = [
     key: '2',
     name: 'Jim Green',
     age: 42,
-    address: 'London No. 2 Lake Park, London No. 2 Lake Park',
+    address:
+      'London No. 2 Lake Park, London No. 2 Lake ParkLondon No. 2 Lake Park, London No. 2 Lake ParkLondon No. 2 Lake Park, London No. 2 Lake ParkLondon No. 2 Lake Park, London No. 2 Lake ParkLondon No. 2 Lake Park, London No. 2 Lake Park',
     tags: ['loser'],
   },
   {

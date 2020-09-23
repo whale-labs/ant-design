@@ -1,0 +1,18 @@
+.@{menu-prefix-cls} {
+  &-submenu {
+    > .@{menu-prefix-cls} {
+      background-color: #fafafa;
+    }
+  }
+
+  &-vertical,
+  &-vertical-left,
+  &-vertical-right,
+  &-inline {
+    .@{menu-prefix-cls}-item {
+      &::after {
+        border-right: 0px;
+      }
+    }
+  }
+}
