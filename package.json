@@ -1,6 +1,6 @@
 {
   "name": "@whale-labs/want",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -73,7 +73,7 @@
     "pre-publish": "npm run test-all -- --skip-build",
     "prettier": "prettier -c --write '**/*'",
     "pretty-quick": "pretty-quick",
-    "pub": "npm run version && npm run compile && npm publish --access public",
+    "pub": "npm run version && npm run build && npm publish --access public",
     "site": "cross-env NODE_ICU_DATA=node_modules/full-icu ESBUILD=1 concurrently \"bisheng build --ssr -c ./site/bisheng.config.js\" \"npm run color-less\"",
     "sort": "npx sort-package-json",
     "sort-api": "antd-tools run sort-api-table",
