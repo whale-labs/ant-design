@@ -83,6 +83,31 @@ async function checkRemote() {
 
 ---
 
+#### webpack.config.js
+
+> 将 antd 换成了@whale-labs/want,否则打包不过去
+
+如`let packageName = 'want-with-locales';` ====> `let packageName = 'want-with-locales'`
+
+如`if (webpackConfig.entry['antd.min'])';` ====> `if (webpackConfig.entry['@whale-labs/want.min'])`
+
+#### .antd-tools.config.js
+
+> 将 antd 换成了 want,否则打包出来的 less 文件有问题
+
+```
+  path.join(process.cwd(), 'dist', `antd.${theme}.less`),
+  =====>
+  path.join(process.cwd(), 'dist', `want.${theme}.less`),
+
+  path.join(process.cwd(), 'dist', 'antd.less'),
+  =====>
+  path.join(process.cwd(), 'dist', 'want.less'),
+
+```
+
+---
+
 ### 增加 customized 定制文件夹，存放覆盖原代码结构的代码
 
 > 在需要覆盖的地方，引入定制文件。如在 componets/style/themes/index.less 中引入`@import '../../../customized/style/themes/index.less';`

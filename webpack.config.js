@@ -17,8 +17,8 @@ function ignoreMomentLocale(webpackConfig) {
 }
 
 function addLocales(webpackConfig) {
-  let packageName = 'antd-with-locales';
-  if (webpackConfig.entry['antd.min']) {
+  let packageName = 'want-with-locales';
+  if (webpackConfig.entry['@whale-labs/want.min']) {
     packageName += '.min';
   }
   webpackConfig.entry[packageName] = './index-with-locales.js';
@@ -52,21 +52,6 @@ function injectWarningCondition(config) {
   });
 }
 
-function addBundleStatsWebpackPlugin(config) {
-  if (!process.env.CIRCLECI || process.env.RUN_ENV !== 'PRODUCTION') {
-    return;
-  }
-  // eslint-disable-next-line global-require
-  const { BundleStatsWebpackPlugin } = require('bundle-stats-webpack-plugin');
-  // eslint-disable-next-line global-require
-  const { RelativeCiAgentWebpackPlugin } = require('@relative-ci/agent');
-  config.plugins.push(new BundleStatsWebpackPlugin());
-
-  if (config.entry['antd.min']) {
-    config.plugins.push(new RelativeCiAgentWebpackPlugin());
-  }
-}
-
 function processWebpackThemeConfig(themeConfig, theme, vars) {
   themeConfig.forEach(config => {
     ignoreMomentLocale(config);
@@ -74,7 +59,8 @@ function processWebpackThemeConfig(themeConfig, theme, vars) {
 
     // rename default entry to ${theme} entry
     Object.keys(config.entry).forEach(entryName => {
-      config.entry[entryName.replace('antd', `antd.${theme}`)] = config.entry[entryName];
+      config.entry[entryName.replace('@whale-labs/want', `@whale-labs/want.${theme}`)] =
+        config.entry[entryName];
       delete config.entry[entryName];
     });
 
@@ -114,7 +100,9 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
     config.optimization.usedExports = true;
     // use esbuild
     if (process.env.ESBUILD || process.env.CSB_REPO) {
-      config.optimization.minimizer[0] = new EsbuildPlugin();
+      config.optimization.minimizer[0] = new EsbuildPlugin({
+        target: 'chrome49',
+      });
     }
 
     config.plugins.push(
@@ -124,8 +112,6 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
         reportFilename: '../report.html',
       }),
     );
-
-    addBundleStatsWebpackPlugin(config);
   });
 
   processWebpackThemeConfig(webpackDarkConfig, 'dark', darkVars);
