@@ -1,1 +1,1 @@
-import 'antd/es/style';
+import './index.less';

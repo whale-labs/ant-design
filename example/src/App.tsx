@@ -4,38 +4,17 @@ import { Button } from 'want'
 import 'want/dest/index.css'
 
 const App = () => {
-
-  const handleClick = (type: string) => {
+  const handleClick = () => {
     // @ts-ignore
     const modifyVars = window.less.modifyVars
-    if (type === 'dark') {
-      const vars = require('./dark.json')
-      modifyVars(vars)
-        .then(() => {
-          console.log(`Theme updated successfully`)
-        })
-        .catch(() => {
-          console.error(`Failed to update theme`)
-        })
-    } else if (type === 'light') {
-      const vars = require('./light.json')
-      modifyVars(vars)
-        .then(() => {
-          console.log(`Theme updated successfully`)
-        })
-        .catch(() => {
-          console.error(`Failed to update theme`)
-        })
-    } else {
-      const vars = require('./theme.json')
-      modifyVars(vars)
-        .then(() => {
-          console.log(`Theme updated successfully`)
-        })
-        .catch(() => {
-          console.error(`Failed to update theme`)
-        })
-    }
+    const vars = require('./theme.json')
+    modifyVars(vars)
+      .then(() => {
+        console.log(`Theme updated successfully`)
+      })
+      .catch(() => {
+        console.error(`Failed to update theme`)
+      })
   }
 
   return (
@@ -43,23 +22,14 @@ const App = () => {
       <Button
         type='default'
         style={{ margin: '100px' }}
-        onClick={() => handleClick('theme')}
+        onClick={() => handleClick()}
       >
         Default
       </Button>
-      <Button
-        type='primary'
-        danger
-        style={{ margin: '100px' }}
-        onClick={() => handleClick('dark')}
-      >
+      <Button type='primary' danger style={{ margin: '100px' }}>
         Dark
       </Button>
-      <Button
-        type='primary'
-        style={{ margin: '100px' }}
-        onClick={() => handleClick('light')}
-      >
+      <Button type='primary' style={{ margin: '100px' }}>
         Light
       </Button>
     </div>

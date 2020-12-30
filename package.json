@@ -1,6 +1,6 @@
 {
   "name": "@whale-labs/want",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Whale React UI library base on antd",
   "author": "hicoldcat",
   "license": "MIT",
@@ -61,7 +61,7 @@
     "dest"
   ],
   "dependencies": {
-    "@whale/mn-bundle": "^0.0.6",
+    "@whale/mn-bundle": "0.0.7",
     "antd": "^4.9.4"
   }
 }
