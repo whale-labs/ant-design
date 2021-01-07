@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { Button } from 'want'
-import 'want/dest/index.css'
+import { Button } from '@whale-labs/want'
+import '@whale-labs/want/es/index.css'
 
 const App = () => {
   const handleClick = () => {

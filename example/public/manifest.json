@@ -1,6 +1,6 @@
 {
-  "short_name": "want",
-  "name": "want",
+  "short_name": "@whale-labs/want",
+  "name": "@whale-labs/want",
   "icons": [
     {
       "src": "favicon.ico",

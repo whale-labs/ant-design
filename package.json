@@ -1,19 +1,20 @@
 {
   "name": "@whale-labs/want",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Whale React UI library base on antd",
   "author": "hicoldcat",
   "license": "MIT",
   "repository": "whale-labs/want",
-  "main": "dest/index.js",
-  "module": "dest/index.js",
+  "main": "es/index.js",
+  "module": "es/index.js",
   "source": "src/index.tsx",
+  "typings": "es/index.d.ts",
   "engines": {
     "node": ">=10"
   },
   "scripts": {
-    "build": "mn-bundle --compile",
-    "start": "mn-bundle --compile --watch",
+    "build": "mn-bundle --compile --outDir es",
+    "start": "mn-bundle --compile --watch --outDir es",
     "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
@@ -24,8 +25,18 @@
     "deploy": "gh-pages -d example/build"
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 11"
+  ],
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -57,8 +68,13 @@
     "typescript": "^3.7.5"
   },
   "files": [
-    "dist",
-    "dest"
+    "lib",
+    "es"
+  ],
+  "sideEffects": [
+    "es/**/style/*",
+    "lib/**/style/*",
+    "*.less"
   ],
   "dependencies": {
     "@whale/mn-bundle": "0.0.7",
